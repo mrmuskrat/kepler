@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Solar System Model - OpenStax Astronomy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Solar System Model</h1>
+                <p class="subtitle">Based on OpenStax Astronomy 2e - Interactive Orbital Mechanics</p>
+            </div>
+            <button id="toggleUI" class="toggle-btn" title="Toggle UI (F key)">☰</button>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <canvas id="solarSystem"></canvas>
+            </div>
+
+            <div class="control-panel">
+                <div class="info-panel">
+                    <h2>System Information</h2>
+                    <div id="dateDisplay" class="info-item">
+                        <strong>Date:</strong> <span id="currentDate"></span>
+                    </div>
+                    <div id="selectedPlanet" class="info-item">
+                        <strong>Selected Planet:</strong> <span id="planetName">None</span>
+                    </div>
+                    <div id="planetInfo">
+                        <div class="info-item"><strong>Distance from Sun:</strong> <span id="planetDistance">-</span></div>
+                        <div class="info-item"><strong>Orbital Velocity:</strong> <span id="planetVelocity">-</span></div>
+                        <div class="info-item"><strong>Orbital Period:</strong> <span id="planetPeriod">-</span></div>
+                        <div class="info-item"><strong>Eccentricity:</strong> <span id="planetEccentricity">-</span></div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <h2>Controls</h2>
+                    
+                    <div class="control-group">
+                        <label for="timeSpeed">Time Speed:</label>
+                        <input type="range" id="timeSpeed" min="0" max="10" value="1.0" step="0.1">
+                        <span id="timeSpeedValue">1.0x</span>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="zoom">Zoom Level:</label>
+                        <input type="range" id="zoom" min="1" max="15" value="5" step="0.1">
+                        <span id="zoomValue">5.0x</span>
+                    </div>
+
+                    <div class="control-group">
+                        <button id="pausePlay" class="btn">Pause</button>
+                        <button id="resetBtn" class="btn">Reset to Today</button>
+                    </div>
+
+                    <div class="control-group">
+                        <label>
+                            <input type="checkbox" id="showOrbits" checked>
+                            Show Orbits
+                        </label>
+                    </div>
+
+                    <div class="control-group">
+                        <label>
+                            <input type="checkbox" id="showLabels" checked>
+                            Show Labels
+                        </label>
+                    </div>
+
+                    <div class="control-group">
+                        <label>
+                            <input type="checkbox" id="showVelocityVectors">
+                            Show Velocity Vectors
+                        </label>
+                    </div>
+
+                    <div class="control-group">
+                        <label>
+                            <input type="checkbox" id="showTrails">
+                            Show Orbital Trails
+                        </label>
+                    </div>
+
+                    <div class="control-group">
+                        <label>
+                            <input type="checkbox" id="showPeriApo">
+                            Show Perihelion/Aphelion
+                        </label>
+                    </div>
+                </div>
+
+                <div class="equations-panel">
+                    <h2>Key Equations</h2>
+                    <div class="equation">
+                        <strong>Kepler's Third Law:</strong>
+                        <div class="math">T² = (4π²/GM) × a³</div>
+                        <p class="eq-desc">Period squared proportional to semi-major axis cubed</p>
+                    </div>
+                    <div class="equation">
+                        <strong>Orbital Velocity:</strong>
+                        <div class="math">v = √(GM/r)</div>
+                        <p class="eq-desc">Velocity depends on distance from Sun</p>
+                    </div>
+                    <div class="equation">
+                        <strong>Gravitational Force:</strong>
+                        <div class="math">F = GMm/r²</div>
+                        <p class="eq-desc">Newton's law of universal gravitation</p>
+                    </div>
+                </div>
+                
+                <div class="keyboard-help">
+                    <h2>Keyboard Shortcuts</h2>
+                    <div class="shortcut"><strong>Space:</strong> Pause/Play</div>
+                    <div class="shortcut"><strong>↑/↓ or +/-:</strong> Zoom In/Out</div>
+                    <div class="shortcut"><strong>←/→:</strong> Speed Down/Up</div>
+                    <div class="shortcut"><strong>1-8:</strong> Select Planet</div>
+                    <div class="shortcut"><strong>Esc:</strong> Deselect</div>
+                    <div class="shortcut"><strong>F:</strong> Toggle UI</div>
+                </div>
+                
+                <div class="mobile-help">
+                    <h2>Touch Controls</h2>
+                    <div class="shortcut"><strong>Tap:</strong> Select Planet</div>
+                    <div class="shortcut"><strong>Pinch:</strong> Zoom In/Out</div>
+                    <div class="shortcut"><strong>Sliders:</strong> Adjust Speed & Zoom</div>
+                    <div class="shortcut"><strong>Buttons:</strong> Pause/Play, Reset</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
