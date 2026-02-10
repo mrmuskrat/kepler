@@ -777,7 +777,7 @@ class SolarSystem {
                     let newZoom = initialZoom * scale;
                     
                     // Clamp zoom to valid range
-                    newZoom = Math.max(5, Math.min(75, newZoom));
+                    newZoom = Math.max(1.1, Math.min(22, newZoom));
                     this.zoom = newZoom;
                     
                     // Update UI
@@ -839,7 +839,7 @@ class SolarSystem {
                     case 'ArrowUp':
                     case '+':
                     case '=': // Zoom in
-                        this.zoom = Math.min(75, this.zoom + 2.5);
+                        this.zoom = Math.min(22, this.zoom + 0.6);
                         const zoomInSlider = document.getElementById('zoom');
                         const zoomInValue = document.getElementById('zoomValue');
                         if (zoomInSlider && zoomInValue) {
@@ -851,7 +851,7 @@ class SolarSystem {
                     case 'ArrowDown':
                     case '-':
                     case '_': // Zoom out
-                        this.zoom = Math.max(5, this.zoom - 2.5);
+                        this.zoom = Math.max(1.1, this.zoom - 0.6);
                         const zoomOutSlider = document.getElementById('zoom');
                         const zoomOutValue = document.getElementById('zoomValue');
                         if (zoomOutSlider && zoomOutValue) {

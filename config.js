@@ -18,7 +18,7 @@ const SOLAR_MASS = 1.989e30; // Mass of the Sun in kg
 // ===== SIMULATION DEFAULTS =====
 const DEFAULT_CONFIG = {
     timeSpeed: 0.1,        // Initial time speed (days per frame)
-    zoom: 5.0,             // Initial zoom level (actual, not displayed)
+    zoom: 1.1,             // Initial zoom level (actual, not displayed) - 1x displayed shows all planets
     showOrbits: true,
     showLabels: true,
     showVelocityVectors: false,
@@ -116,5 +116,5 @@ const PLANETS = {
 // ===== UI SCALING =====
 const UI_SCALE = {
     timeSpeedMultiplier: 0.1,  // UI slider value → actual speed
-    zoomMultiplier: 5,         // UI slider value → actual zoom
+    zoomMultiplier: 1.1,       // UI slider value → actual zoom (1x shows all planets)
 };

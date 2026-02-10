@@ -122,7 +122,7 @@ Then open http://localhost:8000
 
 ### Sliders
 - **Time Speed Slider**: Control how fast the simulation runs (0-10x displayed, scaled to 0-1x actual for precision)
-- **Zoom Slider**: Zoom in/out (1-15x displayed, scaled to 5-75x actual for better visibility at all levels)
+- **Zoom Slider**: Zoom in/out (1-20x; starts at 1x where all 8 planets are visible)
 
 ### Buttons & Checkboxes
 - **Pause/Play**: Freeze or resume the simulation
@@ -232,7 +232,7 @@ The application includes comprehensive error handling to ensure stability and pr
 ### Input Validation
 - **Kepler Equation Solver**: Validates eccentricity bounds (0 ≤ e < 1) and checks for convergence
 - **Orbital Calculations**: Validates all numerical inputs and results against NaN and Infinity
-- **User Controls**: Range checks for zoom (1-15x) and speed (0-10x) values from sliders and keyboard
+- **User Controls**: Range checks for zoom (1-20x) and speed (0-10x) values from sliders and keyboard
 - **Date Calculations**: Validates epoch and current date before computing planet positions
 
 ### Graceful Degradation
@@ -252,6 +252,7 @@ The application includes comprehensive error handling to ensure stability and pr
 - **Null Checks**: All DOM element access validated before use
 - **Numeric Validation**: All calculations check for valid finite numbers
 - **Animation Continuity**: Animation loop continues even if individual frames encounter errors
+- **Zoom Range**: 1-20x starting at 1x where all planets (including Neptune at 30 AU) are visible in the viewport
 
 ## Educational Goals
 
