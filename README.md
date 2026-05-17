@@ -1,5 +1,7 @@
 # Solar System Model
 
+**Live demo**: https://kepler-orbit-sim.pages.dev
+
 An interactive web-based solar system visualization implementing orbital mechanics equations from the **OpenStax Astronomy 2e** textbook.
 
 ## Features

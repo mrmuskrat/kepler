@@ -17,7 +17,20 @@ python3 -m http.server 8000
 
 ## Deployment
 
-Deployed on Cloudflare Pages via `wrangler.jsonc` (project name: `kepler-orbit-sim`, serves the repo root as static assets). There is no build step — Cloudflare serves the files as-is.
+Deployed on Cloudflare Pages at https://kepler-orbit-sim.pages.dev. There is no build step — Cloudflare serves the repo root as static assets.
+
+To deploy manually (requires `wrangler login` first):
+
+```bash
+wrangler pages deploy . --project-name kepler-orbit-sim --branch main
+```
+
+The project was created once with:
+```bash
+wrangler pages project create kepler-orbit-sim --production-branch main
+```
+
+The `wrangler.jsonc` is missing `pages_build_output_dir` so Wrangler ignores it and falls back to the CLI flags — this is harmless for a no-build static site.
 
 ## Architecture
 
