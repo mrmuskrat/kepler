@@ -18,33 +18,33 @@ class SolarSystem {
             }
             
             this.resize();
-        
-        // Simulation parameters (from config)
-        this.timeSpeed = DEFAULT_CONFIG.timeSpeed;
-        this.currentTime = 0; // Days since epoch
-        this.isPaused = false;
-        this.zoom = DEFAULT_CONFIG.zoom;
-        this.showOrbits = DEFAULT_CONFIG.showOrbits;
-        this.showLabels = DEFAULT_CONFIG.showLabels;
-        this.showVelocityVectors = DEFAULT_CONFIG.showVelocityVectors;
-        this.showTrails = DEFAULT_CONFIG.showTrails;
-        this.showPeriApo = DEFAULT_CONFIG.showPeriApo;
-        
-        // Planet states
-        this.planetStates = {};
-        this.selectedPlanet = null;
-        
-        // Orbital trails
-        this.maxTrailLength = DEFAULT_CONFIG.maxTrailLength;
-        
-        // Initialize planet states
-        this.initializePlanets();
-        
-        // Mouse interaction
-        this.setupMouseInteraction();
-        
-        // Keyboard controls
-        this.setupKeyboardControls();
+
+            // Simulation parameters (from config)
+            this.timeSpeed = DEFAULT_CONFIG.timeSpeed;
+            this.currentTime = 0; // Days since epoch
+            this.isPaused = false;
+            this.zoom = DEFAULT_CONFIG.zoom;
+            this.showOrbits = DEFAULT_CONFIG.showOrbits;
+            this.showLabels = DEFAULT_CONFIG.showLabels;
+            this.showVelocityVectors = DEFAULT_CONFIG.showVelocityVectors;
+            this.showTrails = DEFAULT_CONFIG.showTrails;
+            this.showPeriApo = DEFAULT_CONFIG.showPeriApo;
+
+            // Planet states
+            this.planetStates = {};
+            this.selectedPlanet = null;
+
+            // Orbital trails
+            this.maxTrailLength = DEFAULT_CONFIG.maxTrailLength;
+
+            // Initialize planet states
+            this.initializePlanets();
+
+            // Mouse interaction
+            this.setupMouseInteraction();
+
+            // Keyboard controls
+            this.setupKeyboardControls();
         } catch (error) {
             console.error('Error initializing solar system:', error);
             this.showError('Failed to initialize solar system: ' + error.message);
@@ -594,7 +594,7 @@ class SolarSystem {
         this.ctx.font = '12px Arial';
         this.ctx.textAlign = 'center';
         this.ctx.fillText('1 AU', barX + scaleBarLength / 2, barY - 8);
-        this.ctx.fillText(`(${(AU / 1e6).toFixed(0)} million km)`, barX + scaleBarLength / 2, barY + 18);
+        this.ctx.fillText(`(${(AU / 1e9).toFixed(0)} million km)`, barX + scaleBarLength / 2, barY + 18);
     }
     
     updateInfoPanel() {
@@ -1083,7 +1083,7 @@ function setupControls() {
             const toggleUI = () => {
                 try {
                     container.classList.toggle('ui-hidden');
-                    toggleUIBtn.textContent = container.classList.contains('ui-hidden') ? '☰' : '☰';
+                    toggleUIBtn.title = container.classList.contains('ui-hidden') ? 'Show UI (F key)' : 'Hide UI (F key)';
                 } catch (error) {
                     console.error('Error toggling UI:', error);
                 }
